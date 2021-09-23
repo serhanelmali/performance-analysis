@@ -14,17 +14,15 @@ router.post("/", (req, res) => {
   metric
     .save()
     .then((metric) => {
-      res
-        .json({ message: "Metric successfully saved.", data: metric })
-        .catch((err) => {
-          res.status(500);
-          res.json({
-            message: "An error occured while saving metric.",
-            error: err,
-          });
-        });
+      res.json({ message: "Metric successfully saved.", data: metric });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      res.status(500);
+      res.json({
+        message: "An error occured while saving metric.",
+        error: err,
+      });
+    });
 });
 
 module.exports = router;

@@ -10,15 +10,16 @@ const metricSchema = new Schema({
     type: String,
     required: true,
   },
-  dom_load: {
-    type: Number,
-    required: true,
-  },
+
   fcp: {
     type: Number,
     required: true,
   },
   ttfb: {
+    type: Number,
+    required: true,
+  },
+  dom_load: {
     type: Number,
     required: true,
   },
@@ -32,14 +33,18 @@ const metricSchema = new Schema({
         type: String,
         required: true,
       },
-      loadTime: {
+      file_type: {
+        type: String,
+        required: true,
+      },
+      load_time: {
         type: Number,
         required: true,
       },
     },
   ],
   started_at: {
-    type: Date,
+    type: String,
     required: true,
   },
 });
