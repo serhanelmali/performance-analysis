@@ -3,21 +3,26 @@ const Metric = require("../database/metrics");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const metric = new Metric({
-    url: "deneme",
-    user_agent: "mozilla",
-    dom_load: 123,
-    fcp: 23,
-    ttfb: 44,
-    window_load: 55,
-    files: [{ name: "test", loadTime: 23 }],
-    started_at: new Date(),
-  });
+  Metric.find(this.all).then((metrics) => res.json(metrics));
+});
+
+router.post("/", (req, res) => {
+  let data = req.body;
+
+  const metric = new Metric(data);
 
   metric
     .save()
-    .then((result) => {
-      res.send(result);
+    .then((metric) => {
+      res
+        .json({ message: "Metric successfully saved.", data: metric })
+        .catch((err) => {
+          res.status(500);
+          res.json({
+            message: "An error occured while saving metric.",
+            error: err,
+          });
+        });
     })
     .catch((err) => console.log(err));
 });
