@@ -1,0 +1,22 @@
+{
+  "name": "performance-analysis",
+  "version": "1.0.0",
+  "description": "A performance analysis app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "nodemon app.js"
+  },
+  "author": "Serhan Elmalı <serhanelmali@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jest": "^27.2.1",
+    "joi": "^17.4.2",
+    "mongoose": "^6.0.7",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}
