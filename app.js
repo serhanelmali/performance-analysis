@@ -5,9 +5,12 @@ const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 7000;
 
-db();
+const metricRouter = require("./routes/metric");
 
+db();
 app.use(morgan("tiny"));
 app.use(express.json());
+
+app.use("/metric", metricRouter);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));

@@ -44,6 +44,6 @@ const metricSchema = new Schema({
   },
 });
 
-const metrics = mongoose.blog("metrics", metricSchema);
+const metrics = mongoose.model("metrics", metricSchema);
 
 module.exports = metrics;
