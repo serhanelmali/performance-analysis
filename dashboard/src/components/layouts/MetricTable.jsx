@@ -17,9 +17,10 @@ const MetricTable = ({ metrics }) => {
 };
 
 const Container = styled.div`
+  width: 100%;
+
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
 
   font-family: "Roboto", sans-serif;

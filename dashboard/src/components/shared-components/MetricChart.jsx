@@ -6,7 +6,7 @@ const MetricChart = ({ name, metrics, type }) => {
     <Container>
       <Title>{name}</Title>
       {metrics ? (
-        <ResponsiveContainer width={"100%"} height={180}>
+        <ResponsiveContainer width={"100%"} height={200}>
           <LineChart
             data={metrics.map((metric) => metric)}
             margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
@@ -26,13 +26,13 @@ const MetricChart = ({ name, metrics, type }) => {
 };
 
 const Container = styled.div`
-  width: 40%;
+  width: 45%;
+
+  margin: 1rem;
 
   display: flex;
   flex-direction: column;
 
-  padding: 1rem;
-  margin: 1rem;
   border-radius: 0.3rem;
 
   align-items: center;
@@ -41,11 +41,11 @@ const Container = styled.div`
   background: rgb(50, 50, 50);
 
   @media (max-width: 640px) {
-    width: 37%;
+    margin: 0.5rem;
   }
 
   @media (max-width: 540px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 

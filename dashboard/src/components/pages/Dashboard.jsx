@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import getMetrics from "../../api/getMetrics";
 import styled from "styled-components";
 import MetricTable from "../layouts/MetricTable";
+import MetricDetail from "../layouts/MetricDetail";
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState({
@@ -31,13 +32,13 @@ const Dashboard = () => {
     fetchMetrics();
   }, []);
 
-  console.log(metrics);
   return (
     <HomePage>
       <Header>
         <h1>Performance Analysis Dashboard</h1>
       </Header>
       <MetricTable metrics={metrics.data} />
+      <MetricDetail metrics={metrics.data} />
     </HomePage>
   );
 };
@@ -50,8 +51,8 @@ const HomePage = styled.div`
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 
-  background: rgba(0, 0, 0, 0.849);
   color: white;
 `;
 
