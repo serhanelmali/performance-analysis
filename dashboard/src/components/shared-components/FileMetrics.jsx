@@ -1,30 +1,13 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { formatValue } from "../../utils/format-value";
 
 const FileMetrics = ({ metrics }) => {
-  const [fileIndex, setFileIndex] = useState(0);
-  const files = metrics?.[fileIndex]?.files;
-
-  const increaseIndex = () => {
-    fileIndex < files.length - 1
-      ? setFileIndex(fileIndex + 1)
-      : setFileIndex(0);
-  };
-
-  const decreaseIndex = () => {
-    fileIndex > 0
-      ? setFileIndex(fileIndex - 1)
-      : setFileIndex(files.length - 1);
-  };
-
-  console.log(metrics);
   return (
     <>
       {metrics && (
         <Container>
           <List>
-            {files?.map((file, index) => (
+            {metrics?.map((file, index) => (
               <ListItem key={index}>
                 <span>{file.name}</span>
                 <ListItemContainer>
@@ -43,7 +26,6 @@ const FileMetrics = ({ metrics }) => {
 const Container = styled.div``;
 const List = styled.ul`
   overflow: scroll;
-  width: 46%;
   height: 150px;
 
   list-style: none;
