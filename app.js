@@ -1,5 +1,6 @@
 const express = require("express");
 const db = require("./database");
+const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
 require("dotenv").config();
@@ -10,8 +11,9 @@ const scriptRouter = require("./routes/script");
 const targetRouter = require("./routes/target");
 
 db();
-app.use(morgan("tiny"));
 app.use(express.json());
+app.use(cors());
+app.use(morgan("tiny"));
 
 app.use("/metric", metricRouter);
 app.use("/script", scriptRouter);
