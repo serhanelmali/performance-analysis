@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getMetrics from "../../api/getMetrics";
 import styled from "styled-components";
+import MetricTable from "../layouts/MetricTable";
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState({
@@ -36,6 +37,7 @@ const Dashboard = () => {
       <Header>
         <h1>Performance Analysis Dashboard</h1>
       </Header>
+      <MetricTable metrics={metrics.data} />
     </HomePage>
   );
 };
@@ -55,6 +57,7 @@ const HomePage = styled.div`
 
 const Header = styled.header`
   display: flex;
+  flex-direction: row;
   justify-content: center;
 
   text-align: center;
