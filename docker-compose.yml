@@ -1,0 +1,44 @@
+version: "3.6"
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    volumes:
+      - db_data:/data/db
+  mongogui:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "mongo"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://admin:pass@mongo:27017
+  api:
+    build: ./
+    ports:
+      - "80:80"
+    depends_on:
+      - "mongo"
+    restart: always
+    environment:
+      PORT: 80
+      MONGODB_URL: mongodb://admin:pass@mongo:27017
+
+  dashboard:
+    build: ./dashboard
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "mongo"
+    restart: always
+    environment:
+      REACT_APP_API_URL: http://api:80/metrics
+
+volumes:
+  db_data:

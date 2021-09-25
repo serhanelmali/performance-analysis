@@ -8,9 +8,11 @@ router.get("/", (req, res) => {
     const minDate = new Date(date.setMinutes(date.getMinutes() - 30));
     return minDate.toString();
   };
+
   const timeMax = () => {
     return new Date().toString();
   };
+
   Metric.find({
     started_at: { $gte: timeMin(), $lte: timeMax() },
   }).then((metrics) => res.json(metrics));
