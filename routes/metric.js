@@ -3,26 +3,17 @@ const Metric = require("../database/metrics");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const timeRangeMin = () => {
-    if (req.query.min) {
-      return new Date(req.query.min).toString();
-    }
-
+  const timeMin = () => {
     const date = new Date();
-    return date.setMinutes(date.getMinutes() - 30).toString();
+    const minDate = new Date(date.setMinutes(date.getMinutes() - 30));
+    return minDate.toString();
   };
-  const timeRangeMax = () => {
-    if (req.query.max) {
-      return new Date(req.query.max).toString();
-    }
-
+  const timeMax = () => {
     return new Date().toString();
   };
   Metric.find({
-    started_at: { $gte: timeRangeMin(), $lte: timeRangeMax() },
+    started_at: { $gte: timeMin(), $lte: timeMax() },
   }).then((metrics) => res.json(metrics));
-
-  console.log(req.query.min);
 });
 
 router.post("/", (req, res) => {
