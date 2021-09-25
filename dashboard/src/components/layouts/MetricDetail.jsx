@@ -37,7 +37,7 @@ const MetricDetail = ({ metrics }) => {
 
 const Container = styled.div`
   width: 90%;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0rem 1rem 0;
   padding: 1rem;
 
   background: #323232;
@@ -65,7 +65,7 @@ const ButtonContainer = styled.div`
 const Button = styled.button`
   margin: 0.5em;
 
-  width: 6em;
+  width: 12em;
   height: 3em;
 
   color: white;

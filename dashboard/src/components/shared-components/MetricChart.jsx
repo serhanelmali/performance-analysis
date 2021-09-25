@@ -64,5 +64,9 @@ const NoData = styled.div`
   align-items: center;
 
   text-align: center;
+
+  span {
+    margin-bottom: 32px;
+  }
 `;
 export default MetricChart;

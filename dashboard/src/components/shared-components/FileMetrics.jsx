@@ -29,6 +29,11 @@ const List = styled.ul`
   height: 200px;
 
   list-style: none;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    padding-left: 10px;
+  }
 `;
 const ListItem = styled.li`
   display: flex;
