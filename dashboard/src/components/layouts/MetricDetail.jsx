@@ -20,21 +20,24 @@ const MetricDetail = ({ metrics }) => {
   };
 
   return (
-    <Container>
-      <MetricsContainer>
-        <FileMetrics metrics={files} fileIndex={metricIndex} />
-        <PageMetrics metrics={metrics} metricIndex={metricIndex} />
-      </MetricsContainer>
-      <ButtonContainer>
-        <Button onClick={decreaseIndex}>Previous</Button>
-        <Button onClick={increaseIndex}>Next</Button>
-      </ButtonContainer>
-    </Container>
+    metrics.length > 1 && (
+      <Container>
+        <MetricsContainer>
+          <FileMetrics metrics={files} fileIndex={metricIndex} />
+          <PageMetrics metrics={metrics} metricIndex={metricIndex} />
+        </MetricsContainer>
+        <ButtonContainer>
+          <Button onClick={decreaseIndex}>Previous</Button>
+          <Button onClick={increaseIndex}>Next</Button>
+        </ButtonContainer>
+      </Container>
+    )
   );
 };
 
 const Container = styled.div`
   width: 90%;
+  margin-top: 0.5rem;
   padding: 1rem;
 
   background: #323232;

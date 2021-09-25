@@ -5,7 +5,7 @@ const MetricChart = ({ name, metrics, type }) => {
   return (
     <Container>
       <Title>{name}</Title>
-      {metrics ? (
+      {metrics.length > 1 ? (
         <ResponsiveContainer width={"100%"} height={200}>
           <LineChart
             data={metrics.map((metric) => metric)}
@@ -57,7 +57,7 @@ const Title = styled.h3`
 
 const NoData = styled.div`
   width: 100%;
-  height: 100%;
+  height: 200px;
 
   display: flex;
   justify-content: center;

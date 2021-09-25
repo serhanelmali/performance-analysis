@@ -26,7 +26,7 @@ const FileMetrics = ({ metrics }) => {
 const Container = styled.div``;
 const List = styled.ul`
   overflow: scroll;
-  height: 150px;
+  height: 200px;
 
   list-style: none;
 `;
